@@ -2,6 +2,20 @@
 {% load static %}
 
 {% block content %}
-    <h1>Bienvenue dans mon repertoire</h1>
+    <form action="#" method="POST">
+        <div class="block">
+            <h1>Se connecter</h1>
+            <div class="inputs">
+                <input type="text" name="email" placeholder="Email ou numéro de téléphone">
+                <input type="password" name="password" placeholder="Mot de passe">
+            </div>
+            <p class="inscription">Je n'ai pas un compte ?<span><a href="{% url 'inscription' %}"> S'inscire </a></span></p>
+            <p class="inscription"><a href="#">Mot de passe oublier ?</a></p>
+            <div align="center">
+                <button type="submit">Se connecter</button>
+            </div>
+        </div>
+    </form>
+    <!-- <a href="{% url 'contact' %}">contact ..</a> -->
 {% endblock content %}
     

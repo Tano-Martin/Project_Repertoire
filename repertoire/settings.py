@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'rest_framework',
+    'contact.apps.ContactConfig',
 ]
 
 # REST_FRAMEWORK = {
@@ -74,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'repertoire.context_processors.data',
             ],
         },
     },
@@ -86,16 +88,16 @@ WSGI_APPLICATION = 'repertoire.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # configuration database postgresql
-#DATABASES = {
-	#'default': {
-		#'ENGINE': 'django.db.backends.postgresql',
-		#'NAME': '',
-		#'USER': '',
-		#'PASSWORD': '',
-		#'HOST': '',
-		#'PORT': 5432,
-#	}
-#}
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.postgresql',
+# 		'NAME': 'dcoqotogst6391',
+# 		'USER': 'biohyctbrzpfzu',
+# 		'PASSWORD': '42f97d6c20fdcb241e37c8958a8b4cd88ae24b3a735b66245432120d666fab82',
+# 		'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
+# 		'PORT': 5432,
+# 	}
+# }
 
 # configuration database sqlite3
 DATABASES = {
@@ -128,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-FR'
 
 TIME_ZONE = 'UTC'
 

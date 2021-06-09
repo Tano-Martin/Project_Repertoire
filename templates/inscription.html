@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <form action="#" method="POST">
+        <div class="block">
+            <h1>Inscription</h1>
+
+            <label for="email">Photo de profil</label>
+            <div  style="border: 1px solid #3f3f3f78; height: 100px; width: 100px; display: flex; align-items: center; justify-content: center;">
+                <img src="{% static 'images/photo.png' %}" alt="" style="width: 80%; height: 80%;">
+            </div>
+            
+            <div class="inputs">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom">
+
+                <label for="prenom">Prénom</label>
+                <input type="text" name="prenom" id="prenom">
+
+                <label for="email">Adresse électronique</label>
+                <input type="email" name="email" placeholder="Ex : xxxx@xxx.xxx">
+                
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" name="telephone" placeholder="Ex : 0700000000">
+
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password">
+                
+            </div>
+            <div align="center" style="display: flex;">
+                <a href="{% url 'index' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
+                <button type="submit" style="margin: 0 5px;">S'inscrire</button>
+            </div>
+        </div>
+    </form>
+    <!-- <a href="{% url 'contact' %}">contact ..</a> -->
+{% endblock content %}

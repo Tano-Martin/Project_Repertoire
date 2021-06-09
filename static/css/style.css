@@ -34,8 +34,9 @@ body{
     width: 14px;
     border-radius: 50%;
     position: absolute;
-    top: -5px;
-    left: 9px;
+    z-index: 10;
+    top: 4px;
+    left: 8px;
     border: 2px solid #000;
     background: radial-gradient(#292e3f,#0e0f20 );
 }
@@ -43,10 +44,8 @@ body{
 .screen{
     background-color: #ffffff;
     height: 600px;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     overflow-y: auto;
-
-    padding: 20px;
 }
 
 .phone-actions{
@@ -63,68 +62,73 @@ body{
 
 /* YOUR CODE HERE */
 
-.messages{
+form{
+    background-color:#fffbfb;
+    width: 100%;
+    height: 96%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: 50px;
+    justify-content: center;
+}
+
+.block{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+form h1{
+    color: #69bde7;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form .inputs{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+form .inputs input{
+    height: 40px;
+    padding: 14px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 10px;
+    border: none;
+    background-color: #f2f2f2;
+    margin-bottom: 16px;
+    outline: none;
+}
+
+form p.inscription{
+    font-size: 14px;
     margin-bottom: 20px;
-
+    color: #878787;
 }
 
-.message{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
+
+form p.inscription span, a{
+    color:#69bde7 ;
+    text-decoration: none;
 }
 
-.messages img{
-    width: 30px;
-    height: 30px;
-    margin: 0 5px;
-}
-
-.bar{
-    height: 70px;
+form button{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    margin: 10px 0;
-}
-
-.profil{
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-}
-
-.profil img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-}
-
-p{
-    font-size: 12px;
-    color: #0f0f0f6b;
-    margin: 7px 0;
-}
-
-.rose{
-    color: #f8072f;
-    font-weight: bold;
-}
-
-.plus{
-    width: 75px;
-    height: 70px;
-    position: absolute;
-    bottom: 50px;
-    right: 5px;
-}
-
-.plus img{
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius:20px ;
+    height: 35px;
+    font-size: 1em;
+    border: none;
+    background-color:#69bde7 ;
+    outline: none;
+    cursor: pointer;
 }

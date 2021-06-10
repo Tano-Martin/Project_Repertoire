@@ -43,7 +43,7 @@ body{
 
 .screen{
     background-color: #ffffff;
-    height: 600px;
+    height: 587px;
     border-radius: 0 0 10px 10px;
     overflow-y: auto;
 }
@@ -102,6 +102,7 @@ form .inputs input{
     margin-bottom: 16px;
     outline: none;
 }
+
 
 form p.inscription{
     font-size: 14px;

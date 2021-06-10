@@ -3,6 +3,7 @@
 
 {% block content %}
     <div style="display: flex; align-items: center; justify-content: center; height: 50%; width: 100%; background-color: #69bde7;">
+        <a href="{% url 'update-contact' %}"><img src="{% static 'images/update.png' %}" alt="phone" style="position: absolute; top: 45%; right: 10px; height: 25px; width: 25px;"></a>
         <img src="{% static 'images/photo.png' %}" alt="" style="width: 70%;">
     </div>
     <div class="bloc" style="padding: 10px;">
@@ -16,9 +17,6 @@
             <img src="{% static 'images/mail.png' %}" alt="phone" style="height: 35px; width: 35px; margin-right: 10px;">
             <p><strong>tano-martin@yahoo.com</strong> <br>Adresse électronique</p>
         </div>
-
-        <a href="{% url 'update-contact' %}" style="position: absolute; bottom: 30px; display: flex; align-items: center; border: 1px solid #05050518; box-shadow: 0px 1px 1px #0000009a; padding: 5px; color: #456c80;">Modifier</a>
-        <a href="{% url 'contact' %}" style="position: absolute; bottom: 30px; right: 10px; display: flex; align-items: center; border: 1px solid #05050518; box-shadow: 0px 1px 1px #0000009a; padding: 5px; color: #456c80;">Supprimer</a>
 
     </div>
 

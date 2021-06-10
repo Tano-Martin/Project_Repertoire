@@ -5,6 +5,7 @@ def index(request):
     return render(request, "index.html", locals())
 
 def contact(request):
+    is_contact = True
     return render(request, "contact.html", locals())
 
 def contactdetail(request):
@@ -12,3 +13,9 @@ def contactdetail(request):
 
 def inscription(request):
     return render(request, "inscription.html", locals())
+
+def updatecontact(request):
+    return render(request, "update-contact.html", locals())
+
+def addcontact(request):
+    return render(request, "add-contact.html", locals())

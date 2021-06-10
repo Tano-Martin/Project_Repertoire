@@ -8,11 +8,21 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    
+    {% if is_contact %}
+        <!-- boostrap css -->
+        <link rel="stylesheet" href="{% static 'boostrap/css/bootstrap.css' %}">
+        <!-- boostrap js and jquery -->
+        <script type="application/javascript" src="{% static 'boostrap/js/jquery-3.6.0.min.js' %}"></script>
+        <script type="application/javascript" src="{% static 'boostrap/js/bootstrap.min.js' %}"></script>
+    {% endif %}
+        
 </head>
 <body>
     <div class="device">
         <div class="camera">&nbsp;</div>
-        <div style="border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 30px; background-color: #69bde7; width: 100%; height: 23px;">
+        <div style="border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: space-between; padding: 0px 10px 0 30px; background-color: #69bde7; width: 100%; height: 23px;">
             <h6>{{ date | date:"l d F Y" }}</h6>
             <h6>{{ date | date:"H" }}:{{ date | date:"i" }}</h6>
         </div>

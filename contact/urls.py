@@ -5,6 +5,8 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('contact/', views.contact, name="contact"),
     path('inscription/', views.inscription, name="inscription"),
-    path('contact-detail/', views.contactdetail, name="contact-detail")
+    path('contact-detail/', views.contactdetail, name="contact-detail"),
+    path('update-contact/', views.updatecontact, name="update-contact"),
+    path('add-contact/', views.addcontact, name="add-contact"),
 ]
 

@@ -22,7 +22,5 @@ def updatecontact(request):
 def addcontact(request):
     return render(request, "add-contact.html", locals())
 
-def userconnecte(request):
-    utilisateurs = models.Utilisateur.objects.filter(status=True)
-
-    return render(request, 'index.html', locals())
+def profil(request):
+    return render(request, "profil.html", locals())

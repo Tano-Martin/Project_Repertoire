@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from . import models
 
 # Create your views here.
 def index(request):
+    utilisateurs = models.Utilisateur.objects.filter(status=True)
     return render(request, "index.html", locals())
 
 def contact(request):
@@ -19,3 +21,8 @@ def updatecontact(request):
 
 def addcontact(request):
     return render(request, "add-contact.html", locals())
+
+def userconnecte(request):
+    utilisateurs = models.Utilisateur.objects.filter(status=True)
+
+    return render(request, 'index.html', locals())

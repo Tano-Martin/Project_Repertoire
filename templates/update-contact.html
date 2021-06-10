@@ -3,8 +3,8 @@
 
 {% block content %}
     <h3 style="text-align: center; padding: 10px;">Modifier le contact</h3>
-    <div  style="border: 1px solid #3f3f3f78; height: 170px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-        <img src="{% static 'images/photo.png' %}" alt="" style="width: 50%; height: 70%;">
+    <div  style="border: 1px solid #3f3f3f78; height: 170px; width: 170px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
+        <img src="{% static 'images/photo.png' %}" alt="" style="width: 70%; height: 70%;">
     </div>
     <form action="#" method="POST">
         <div class="block">
@@ -28,12 +28,4 @@
         </div>
     </form>
 
-    <div style="padding: 1px 0; display: flex; justify-content: space-around; position: absolute; bottom: 23px; background-color:white; height: 30px; width: 100%;">
-        <a href="#" style="display: flex; align-items: center;">
-            <img src="{% static 'images/back.png' %}" alt="back" style="height: 70%;">
-        </a>
-        <a href="#" style="display: flex; align-items: center;">
-            <img src="{% static 'images/home.jpg' %}" alt="back" style="height: 70%;">
-        </a>
-    </div>
 {% endblock content %}

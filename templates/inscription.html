@@ -4,7 +4,7 @@
 {% block content %}
     <form action="#" method="POST">
         <div class="block">
-            <h1 style="margin: 7px;">Inscription</h1>
+            <h1>Inscription</h1>
 
             <div class="inputs">
                 <label for="nom">Nom</label>
@@ -29,7 +29,9 @@
                 <input type="password" name="password2">
             </div>
             <div align="center" style="display: flex;">
-                <a href="{% url 'index' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
+                <a href="{% url 'index' %}">
+                    <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
+                </a>
                 <button type="submit" style="margin: 0 5px;">S'inscrire</button>
             </div>
         </div>

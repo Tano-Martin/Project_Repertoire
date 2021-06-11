@@ -11,7 +11,7 @@ urlpatterns = [
     path('add-contact/', views.addcontact, name="add-contact"),
 
 
-    path('inscriptionuser/', views.inscriptionuser, name="inscriptionuser"),
+    # path('inscriptionuser/', views.inscriptionuser, name="inscriptionuser"),
  
 ]
 

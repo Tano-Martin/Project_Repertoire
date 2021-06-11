@@ -1,7 +1,23 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
+class CompteUser(models.Model):
+	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+	prenom = models.CharField(max_length=255, blank=True, null=True)
+	photo = models.FileField(upload_to='CompteUser_file', blank=True, null=True)
+	telephone = models.IntegerField(default=0)
+	date_add = models.DateTimeField(auto_now_add=True)
+	date_update = models.DateTimeField(auto_now=True)
+	status = models.BooleanField(default=True)
+
+	class Meta():
+		verbose_name = 'CompteUser'
+		verbose_name_plural = 'CompteUsers'
+
+	def __str__(self):
+		return self.prenom
+
 
 class Contact(models.Model):
 	nom = models.CharField(max_length=255)

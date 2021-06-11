@@ -40,16 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'rest_framework',
     'contact.apps.ContactConfig',
 ]
 
-# REST_FRAMEWORK = {
-# 	'DEFAULT_FILTER_BACKENDS': [
-# 		'django_filters.rest_framework.DjangoFilterBackend',
-# 		'rest_framework.filters.SearchFilter',
-# 	]
-# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,24 +81,24 @@ WSGI_APPLICATION = 'repertoire.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # configuration database postgresql
-# DATABASES = {
-# 	'default': {
-# 		'ENGINE': 'django.db.backends.postgresql',
-# 		'NAME': 'dcoqotogst6391',
-# 		'USER': 'biohyctbrzpfzu',
-# 		'PASSWORD': '42f97d6c20fdcb241e37c8958a8b4cd88ae24b3a735b66245432120d666fab82',
-# 		'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
-# 		'PORT': 5432,
-# 	}
-# }
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.postgresql',
+		'NAME': 'dcoqotogst6391',
+		'USER': 'biohyctbrzpfzu',
+		'PASSWORD': '42f97d6c20fdcb241e37c8958a8b4cd88ae24b3a735b66245432120d666fab82',
+		'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
+		'PORT': 5432,
+	}
+}
 
 # configuration database sqlite3
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

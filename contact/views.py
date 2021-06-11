@@ -3,7 +3,6 @@ from . import models
 
 # Create your views here.
 def index(request):
-    utilisateurs = models.Utilisateur.objects.filter(status=True)
     return render(request, "index.html", locals())
 
 def contact(request):

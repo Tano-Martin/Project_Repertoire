@@ -9,5 +9,9 @@ urlpatterns = [
     path('contact-detail/', views.contactdetail, name="contact-detail"),
     path('update-contact/', views.updatecontact, name="update-contact"),
     path('add-contact/', views.addcontact, name="add-contact"),
+
+
+    path('inscriptionuser/', views.inscriptionuser, name="inscriptionuser"),
+ 
 ]
 

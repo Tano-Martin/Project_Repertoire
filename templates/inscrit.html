@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="block">
+            <h1>Inscription</h1>
+
+            <div class="inputs">
+                <label for="nom">Nom</label>
+                {{ form.username }}
+
+
+                <label for="email">Adresse électronique</label>
+                {{ form.email }}
+                
+                
+
+                <label for="password1">Mot de passe</label>
+                {{ form.password1 }}
+                
+                <label for="password2">Saisir a nouveau le mot de passe</label>
+                {{ form.password2 }}
+            </div>
+            {{ form.errors }}
+            <div align="center" style="display: flex;">
+                <a href="{% url 'index' %}">
+                    <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
+                </a>
+                <button type="submit" style="margin: 0 5px;">S'inscrire</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

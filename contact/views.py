@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 from . import models
+from .forms import CreerUtilisateur
+
 
 # Create your views here.
 def index(request):
@@ -23,3 +25,14 @@ def addcontact(request):
 
 def profil(request):
     return render(request, "profil.html", locals())
+
+
+
+def inscriptionuser(request):
+    form = CreerUtilisateur()
+    if request.method=='POST':
+        form = CreerUtilisateur(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request, 'inscrit.html', locals())

@@ -8,7 +8,7 @@ class CompteUserForm(ModelForm):
     class Meta:
         models = models.CompteUser
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user'] 
 
 class CreerUtilisateur(UserCreationForm):
     class Meta:
@@ -19,3 +19,4 @@ class ContactForm(ModelForm):
     class Meta:
         model = models.Contact
         fields = '__all__'
+        exclude = ['compteUser'] 

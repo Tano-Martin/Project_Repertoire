@@ -24,16 +24,13 @@
             
             <div align="center" style="display: flex;">
                 <a href="{% url 'logout' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Déconnecter</button></a>
-                <button type="button" style="margin: 0 5px;">Modifier</button>
+                <a href="#"><button type="button" style="margin: 0 5px;">Modifier</button></a>
             </div>
         </div>
     </form>
 
-    <div style="padding: 1px 0; display: flex; justify-content: space-around; position: absolute; bottom: 23px; background-color:white; height: 30px; width: 100%;">
-        <a href="#" style="display: flex; align-items: center;">
-            <img src="{% static 'images/back.png' %}" alt="back" style="height: 70%;">
-        </a>
-        <a href="#" style="display: flex; align-items: center;">
+    <div style="padding: 1px 0; display: flex; justify-content: space-around; position: absolute; bottom: 35px; background-color:white; height: 30px; width: 100%;">
+        <a href="{% url 'contact' user.username %}" style="display: flex; align-items: center;">
             <img src="{% static 'images/home.jpg' %}" alt="back" style="height: 70%;">
         </a>
     </div>

@@ -3,9 +3,10 @@
 
 {% block content %}
     <div style="display: flex; align-items: center; justify-content: center; height: 50%; width: 100%; background-color: #69bde7;">
-        <a href="{% url 'update-contact' %}"><img src="{% static 'images/update.png' %}" alt="phone" style="position: absolute; top: 43%; right: 20px; height: 25px; width: 25px;"></a>
+        <a href="{% url 'update-contact' contact.id %}"><img src="{% static 'images/update.png' %}" alt="phone" style="position: absolute; top: 43%; right: 20px; height: 25px; width: 25px;"></a>
         <img src="{% static 'images/photo.png' %}" alt="" style="width: 70%;">
     </div>
+
     <div class="bloc" style="padding: 10px;">
         <h2 style="padding: 10px;">{{ contact.nom }} {{ contact.prenom }}</h2>
         <div style="display: flex; align-items: center;  margin: 0 0 10px 0; border: 1px solid #05050518; box-shadow: 0px 1px 1px #0000009a; padding: 5px;">

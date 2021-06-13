@@ -46,7 +46,8 @@ def contactdetail(request, id_contact):
 
 
 @login_required
-def updatecontact(request):
+def updatecontact(request, id_contact):
+    contact = get_object_or_404(models.Contact, id=id_contact)
     return render(request, "update-contact.html", locals())
 
 @login_required

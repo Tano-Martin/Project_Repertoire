@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="block">
+            <h1>Inscription</h1>
+
+            <div class="inputs">
+                <label for="nom">Nom</label>
+                {{ form.username }}
+
+
+                <label for="email">Adresse électronique</label>
+                {{ form.email }}
+                
+                
+                <label for="photo">Photo</label>
+                {{ form.photo }}
+
+                <label for="password1">Mot de passe</label>
+                {{ form.password1 }}
+                
+                <label for="password2">Saisir a nouveau le mot de passe</label>
+                {{ form.password2 }}
+            </div>
+            {{ form.errors }}
+            <div align="center" style="display: flex;">
+                <a href="{% url 'index' %}">
+                    <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
+                </a>
+                <button type="submit" style="margin: 0 5px;">S'inscrire</button>
+            </div>
+        </div>
+    </form> -->
+
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="block">
+            <h1>Inscription user</h1>
+
+            <div class="inputs">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom">
+
+                <label for="prenom">Prénom</label>
+                <input type="text" name="prenom" id="prenom">
+
+                <label for="email">Adresse électronique</label>
+                <input type="email" name="email" placeholder="Ex : xxxx@xxx.xxx">
+                
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" name="telephone" placeholder="Ex : 0700000000">
+                
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" style="font-size: 10px; width: 100%; height: 100%;">
+
+                <label for="password1">Mot de passe</label>
+                <input type="password" name="password1">
+                
+                <label for="password2">Saisir a nouveau le mot de passe</label>
+                <input type="password" name="password2">
+            </div>
+            <div align="center" style="display: flex;">
+                <a href="{% url 'index' %}">
+                    <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
+                </a>
+                <button type="submit" style="margin: 0 5px;">S'inscrire</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

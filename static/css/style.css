@@ -63,7 +63,7 @@ body{
 /* YOUR CODE HERE */
 
 form{
-    background-color:#fffbfb;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;

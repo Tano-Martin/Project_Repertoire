@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 # Register your models here.
 @admin.register(models.CompteUser)
 class CompteUserAdmin(admin.ModelAdmin):
-	list_display = ('view_photo', 'prenom', 'telephone', 'date_add', 'date_update', 'status')
+	list_display = ('view_photo', 'user', 'prenom', 'telephone', 'date_add', 'date_update', 'status')
 	date_hierarchy = 'date_add'
 	list_per_page = 10
 	list_editable = ['telephone', 'status']

@@ -4,25 +4,25 @@
 {% block content %}
     <h3 style="text-align: center; padding: 10px;">Modifier le contact</h3>
     <div  style="border: 1px solid #3f3f3f78; height: 170px; width: 170px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
-        <img src="{% static 'images/photo.png' %}" alt="" style="width: 70%; height: 70%;">
+        <img src="{{ contact.photo.url }} alt="" style="width: 70%; height: 70%;">
     </div>
     <form action="#" method="POST">
         <div class="block">
             <div class="inputs" >
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom">
+                <input type="text" name="nom" id="nom" value="{{ contact.nom }}">
 
                 <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom">
+                <input type="text" name="prenom" id="prenom" value="{{ contact.prenom }}">
 
                 <label for="email">Adresse électronique</label>
-                <input type="email" name="email">
+                <input type="email" name="email" value="{{ contact.email }}">
                 
                 <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" name="telephone">
+                <input type="tel" name="telephone" value="{{ contact.telephone }}">
             </div>
             <div align="center" style="display: flex;">
-                <a href="{% url 'contact-detail' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
+                <a href="#"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
                 <button type="submit" style="margin: 0 5px;">Sauvegarder</button>
             </div>
         </div>

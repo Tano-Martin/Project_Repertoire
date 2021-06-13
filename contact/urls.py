@@ -9,7 +9,7 @@ urlpatterns = [
     path('inscription/', views.inscription, name="inscription"),
     path('profil/<str:id_user>', views.profil, name="profil"),
     path('contact-detail/<int:id_contact>', views.contactdetail, name="contact-detail"),
-    path('update-contact/', views.updatecontact, name="update-contact"),
+    path('update-contact/<int:id_contact>', views.updatecontact, name="update-contact"),
     path('add-contact/', views.addcontact, name="add-contact"),
 
 

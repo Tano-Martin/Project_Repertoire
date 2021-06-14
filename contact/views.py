@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import get_object_or_404, redirect, render
 from . import models
 from django.contrib import messages
-from .forms import ContactForm, CreerUtilisateur
+from .forms import CompteUserForm, ContactForm, CreerUtilisateur
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -48,8 +48,9 @@ def updatecontact(request, id_contact):
     contact = get_object_or_404(models.Contact, id=id_contact)
     
     if request.method=='POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
+            contact.photo = form.cleaned_data["photo"]
             contact.nom = form.cleaned_data["nom"]
             contact.prenom = form.cleaned_data["prenom"]
             contact.email = form.cleaned_data["email"]
@@ -58,6 +59,7 @@ def updatecontact(request, id_contact):
             return redirect('contact-detail', id_contact)
     else:
         form = ContactForm(initial={
+            'photo': contact.photo,
             'nom': contact.nom,
             'prenom': contact.prenom,
             'email': contact.email,
@@ -67,22 +69,43 @@ def updatecontact(request, id_contact):
 
 @login_required
 def addcontact(request, id_user):
-    form = ContactForm()
+    
     if request.method=='POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
+            photo = form.cleaned_data["photo"]
             nom = form.cleaned_data["nom"]
             prenom = form.cleaned_data["prenom"]
             email = form.cleaned_data["email"]
             telephone = form.cleaned_data["telephone"]
-            contact = models.Contact(nom=nom, prenom=prenom, email=email, telephone=telephone, compteUser=request.user)
+            contact = models.Contact(photo=photo, nom=nom, prenom=prenom, email=email, telephone=telephone, compteUser=request.user)
             contact.save()
             return redirect('contact', id_user)
+    else :
+        form = ContactForm()
     return render(request, "add-contact.html", locals())
 
 @login_required
 def profil(request, id_user):
     user = get_object_or_404(User, username=id_user)
+    # if request.method=='POST':
+    #     form = CompteUserForm(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         user.compte.photo = form.cleaned_data["photo"]
+    #         user.username = form.cleaned_data["nom"]
+    #         user.compte.prenom = form.cleaned_data["prenom"]
+    #         user.email = form.cleaned_data["email"]
+    #         user.compte.telephone = form.cleaned_data["telephone"]
+    #         user.save()
+    #         return redirect('profil', id_user)
+    # # else:
+    #     form = CompteUserForm(initial={
+    #         'photo': user.compte.photo,
+    #         'nom': user.nom,
+    #         'prenom': user.compte.prenom,
+    #         'email': user.email,
+    #         'telephone': user.compte.telephone,
+    #     }) 
     return render(request, "profil.html", locals())
 
 @login_required

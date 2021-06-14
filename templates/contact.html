@@ -27,8 +27,15 @@
             {% for contact in user.contact_user.all %}
                 <div id="contact">
                     <a href="{% url 'contact-detail' contact.id %}" style="display: flex; align-items: center;width: 75%; text-decoration: none; padding: 7px; margin: 0 30px;">
-                        <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1px solid #002fffd0; border-radius: 100%;">{{ contact.nom|first }}</div>
-                        <div style=" width: 80%; padding: 15px 0 0 10px;"> <p>{{ contact.nom }}</p></div>
+                        
+                        {% if contact.photo.url %}
+                            <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1px solid #7f8081d0; border-radius: 100%;">
+                                <img src="{{ contact.photo.url }}" alt="photo" style="width: 100%; height: 100%; border-radius: 100%;">
+                            </div> 
+                        {% else %}
+                            <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 1px solid #002fffd0; border-radius: 100%;">{{ contact.nom|first }}</div>
+                        {% endif %}
+                        <div style=" width: 80%; padding: 15px 0 0 10px;"> <p>{{ contact.nom|capfirst }}</p></div>
                     </a> 
                     <a href="{% url 'delete' contact.id %}" class="delete">
                         <img src="{% static 'images/delete-forever.png' %}" alt="phone" style="height: 25px; width: 25px;">
@@ -42,7 +49,7 @@
             </div>
         {% endif %}
             
-
+            
     </div>
 
 

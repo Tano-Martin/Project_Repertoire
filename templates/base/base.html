@@ -23,8 +23,8 @@
     <div class="device" style="overflow: hidden;">
         <div class="camera">&nbsp;</div>
         <div style="border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: space-between; padding: 0px 10px 0 30px; background-color: #69bde7; width: 100%; height: 23px;">
-            <h6>{{ date | date:"l d F Y" }}</h6>
-            <h6>{{ date | date:"H" }}:{{ date | date:"i" }}</h6>
+            <h6>{% now 'l d F Y' %}</h6>
+            <h6>{% now 'H:i' %}</h6>
         </div>
         
         {% if is_contact %}
@@ -33,7 +33,14 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Contacts</a>
+                    <a class="navbar-brand" href="#">
+                        {% if  user.compte.photo %}
+                            <img src="{% static 'images/photo.png' %}" alt="" style="width: 50px; height: 50px; border-radius: 100%; border: 1px solid gray;">
+                        {% else %} 
+                            <h3>Contact</h3>
+                        {% endif %}
+    
+                    </a>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">

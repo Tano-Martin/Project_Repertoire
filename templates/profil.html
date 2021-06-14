@@ -3,28 +3,36 @@
 
 {% block content %}
     <h3 style="text-align: center; padding: 10px;">Profil utilisateur</h3>
-    <div  style="border: 1px solid #3f3f3f78; height: 150px; width: 150px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
-        <img src="{{ user.compte.photo.url }}" alt="" style="width: 70%; height: 70%;">
+    <div  style="border: 1px solid #3f3f3f78; height: 130px; width: 130px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
+        {% if user.compte.photo %}
+            <img src="{{ user.compte.photo.url }}" alt="" style="width: 70%; height: 70%;">
+        {% else %} 
+            <img src="{% static 'images/photo.png' %}" alt="" style="width: 70%; height: 70%;">
+        {% endif %}
     </div>
-    <form action="#" method="POST">
+    <form action="#" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="block">
             <div class="inputs" >
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" style=" font-size: 0.7em; height: 48px;">
+
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" value="{{ user.username }}" disabled>
+                <input type="text" name="nom" id="nom" value="{{ user.username }}">
 
                 <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom" value="{{ user.compte.prenom }}" disabled>
+                <input type="text" name="prenom" id="prenom" value="{{ user.compte.prenom }}">
 
                 <label for="email">Adresse électronique</label>
-                <input type="email" name="email" value="{{ user.email }}" disabled>
+                <input type="email" name="email" value="{{ user.email }}">
                 
                 <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" name="telephone" value="{{ user.compte.telephone }}" disabled>
+                <input type="tel" name="telephone" value="{{ user.compte.telephone }}">
             </div>
             
             <div align="center" style="display: flex;">
                 <a href="{% url 'logout' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Déconnecter</button></a>
-                <a href="#"><button type="button" style="margin: 0 5px;">Modifier</button></a>
+                <button type="submit" style="margin: 0 5px;">Modifier</button>
             </div>
         </div>
     </form>

@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block content %}
-    <h3 style="text-align: center; padding: 10px;">Ajouter un nouveau contact</h3>
-    <div  style="border: 1px solid #3f3f3f78; height: 170px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-        <img src="{% static 'images/photo.png' %}" alt="" style="width: 50%; height: 80%;">
-    </div>
-    <form action="#" method="POST">
+    <h3 style="text-align: center; padding: 20px;">Ajouter un nouveau contact</h3>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="block">
             <div class="inputs" >
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" style="font-size: 0.7em; height: 50px;">
+
                 <label for="nom">Nom</label>
                 <input type="text" name="nom" id="nom">
 

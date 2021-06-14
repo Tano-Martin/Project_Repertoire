@@ -7,6 +7,7 @@
         <img src="{{ contact.photo.url }} alt="" style="width: 70%; height: 70%;">
     </div>
     <form action="#" method="POST">
+        {% csrf_token %}
         <div class="block">
             <div class="inputs" >
                 <label for="nom">Nom</label>
@@ -22,7 +23,7 @@
                 <input type="tel" name="telephone" value="{{ contact.telephone }}">
             </div>
             <div align="center" style="display: flex;">
-                <a href="#"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
+                <a href="{% url 'contact-detail' contact.id %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
                 <button type="submit" style="margin: 0 5px;">Sauvegarder</button>
             </div>
         </div>

@@ -7,6 +7,7 @@
         <img src="{% static 'images/photo.png' %}" alt="" style="width: 50%; height: 80%;">
     </div>
     <form action="#" method="POST">
+        {% csrf_token %}
         <div class="block">
             <div class="inputs" >
                 <label for="nom">Nom</label>
@@ -22,18 +23,10 @@
                 <input type="tel" name="telephone">
             </div>
             <div align="center" style="display: flex;">
-                <a href="{% url 'contact' %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
+                <a href="{% url 'contact' user.username %}"><button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button></a>
                 <button type="submit" style="margin: 0 5px;">Sauvegarder</button>
             </div>
         </div>
     </form>
 
-    <div style="padding: 1px 0; display: flex; justify-content: space-around; position: absolute; bottom: 23px; background-color:white; height: 30px; width: 100%;">
-        <a href="#" style="display: flex; align-items: center;">
-            <img src="{% static 'images/back.png' %}" alt="back" style="height: 70%;">
-        </a>
-        <a href="#" style="display: flex; align-items: center;">
-            <img src="{% static 'images/home.jpg' %}" alt="back" style="height: 70%;">
-        </a>
-    </div>
 {% endblock content %}

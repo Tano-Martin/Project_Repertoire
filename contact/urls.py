@@ -10,10 +10,8 @@ urlpatterns = [
     path('profil/<str:id_user>', views.profil, name="profil"),
     path('contact-detail/<int:id_contact>', views.contactdetail, name="contact-detail"),
     path('update-contact/<int:id_contact>', views.updatecontact, name="update-contact"),
-    path('add-contact/', views.addcontact, name="add-contact"),
-
-
-    # path('inscriptionuser/', views.inscriptionuser, name="inscriptionuser"),
+    path('add-contact/<str:id_user>', views.addcontact, name="add-contact"),
+    path('delete/<int:id_contact>', views.delete, name='delete'),
  
 ]
 

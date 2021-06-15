@@ -34,8 +34,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        {% if  user.compte.photo %}
-                            <img src="{% static 'images/photo.png' %}" alt="" style="width: 50px; height: 50px; border-radius: 100%; border: 1px solid gray;">
+                        {% if user.compte.photo %}
+                            <img src="{{ user.compte.photo.url }}" alt="" style="width: 50px; height: 50px; border-radius: 100%; border: 1px solid gray;">
                         {% else %} 
                             <h3>Contact</h3>
                         {% endif %}

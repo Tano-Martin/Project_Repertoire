@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from . import models
 from django.contrib import messages
 from .forms import CompteUserForm, ContactForm, CreerUtilisateur
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 
 
@@ -16,7 +16,6 @@ def index(request):
         user = authenticate(request, username=username, password=password)
         if user is not None :
             login(request, user)
-            messages.success(request, "Enregistrement effectué avec succès.")
             return redirect('contact', id_user=user)
         messages.error(request, "Erreur : information invalide.")
     return render(request, "index.html", locals())
@@ -26,7 +25,12 @@ def inscription(request):
     if request.method=='POST':
         form = CreerUtilisateur(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            models.CompteUser.objects.create(user=user)
+            
+            # creation de groupe
+            group = Group.objects.get(name='user_group')
+            user.groups.add(group)
             return redirect('index')
     return render(request, "inscription.html", locals())
 
@@ -88,24 +92,25 @@ def addcontact(request, id_user):
 @login_required
 def profil(request, id_user):
     user = get_object_or_404(User, username=id_user)
+    #usercompte = get_object_or_404(models.CompteUser, user=id_user)
     # if request.method=='POST':
     #     form = CompteUserForm(request.POST, request.FILES)
     #     if form.is_valid():
-    #         user.compte.photo = form.cleaned_data["photo"]
-    #         user.username = form.cleaned_data["nom"]
-    #         user.compte.prenom = form.cleaned_data["prenom"]
-    #         user.email = form.cleaned_data["email"]
-    #         user.compte.telephone = form.cleaned_data["telephone"]
-    #         user.save()
-    #         return redirect('profil', id_user)
-    # # else:
+    #         contact.photo = form.cleaned_data["photo"]
+    #         contact.nom = form.cleaned_data["nom"]
+    #         contact.prenom = form.cleaned_data["prenom"]
+    #         contact.email = form.cleaned_data["email"]
+    #         contact.telephone = form.cleaned_data["telephone"]
+    #         contact.save()
+    #         return redirect('contact-detail', id_contact)
+    # else:
     #     form = CompteUserForm(initial={
-    #         'photo': user.compte.photo,
-    #         'nom': user.nom,
-    #         'prenom': user.compte.prenom,
-    #         'email': user.email,
-    #         'telephone': user.compte.telephone,
-    #     }) 
+    #         'photo': contact.photo,
+    #         'nom': contact.nom,
+    #         'prenom': contact.prenom,
+    #         'email': contact.email,
+    #         'telephone': contact.telephone,
+    #     })
     return render(request, "profil.html", locals())
 
 @login_required

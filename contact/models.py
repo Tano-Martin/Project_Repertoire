@@ -6,7 +6,7 @@ class CompteUser(models.Model):
 	user = models.OneToOneField(User, related_name="compte", null=True, blank=True, on_delete=models.CASCADE)
 	prenom = models.CharField(max_length=255, blank=True, null=True)
 	photo = models.FileField(upload_to='CompteUser_file', default='photo.png', blank=True, null=True)
-	telephone = models.IntegerField(default=0)
+	telephone = models.IntegerField(default=0, blank=True, null=True)
 	date_add = models.DateTimeField(auto_now_add=True)
 	date_update = models.DateTimeField(auto_now=True)
 	status = models.BooleanField(default=True)
@@ -16,7 +16,7 @@ class CompteUser(models.Model):
 		verbose_name_plural = 'CompteUsers'
 
 	def __str__(self):
-		return self.prenom
+		return f"{self.user}"
 
 
 class Contact(models.Model):

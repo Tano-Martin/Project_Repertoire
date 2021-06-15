@@ -16,16 +16,16 @@
                 <input type="file" name="photo" id="photo" style=" font-size: 0.7em; height: 48px;">
 
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" >
+                <input type="text" name="nom" id="nom" value="{{ user.username }}">
 
                 <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom" >
+                <input type="text" name="prenom" id="prenom" value="{{ user.compte.prenom }}">
 
                 <label for="email">Adresse électronique</label>
-                <input type="email" name="email">
+                <input type="email" name="email" value="{{ user.email }}">
                 
                 <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" name="telephone" >
+                <input type="tel" name="telephone" value="{{ user.compte.telephone }}">
             </div>
             
             <div align="center" style="display: flex;">

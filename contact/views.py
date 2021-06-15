@@ -90,27 +90,13 @@ def addcontact(request, id_user):
     return render(request, "add-contact.html", locals())
 
 @login_required
-def profil(request, id_user):
-    user = get_object_or_404(User, username=id_user)
-    #usercompte = get_object_or_404(models.CompteUser, user=id_user)
-    # if request.method=='POST':
-    #     form = CompteUserForm(request.POST, request.FILES)
-    #     if form.is_valid():
-    #         contact.photo = form.cleaned_data["photo"]
-    #         contact.nom = form.cleaned_data["nom"]
-    #         contact.prenom = form.cleaned_data["prenom"]
-    #         contact.email = form.cleaned_data["email"]
-    #         contact.telephone = form.cleaned_data["telephone"]
-    #         contact.save()
-    #         return redirect('contact-detail', id_contact)
-    # else:
-    #     form = CompteUserForm(initial={
-    #         'photo': contact.photo,
-    #         'nom': contact.nom,
-    #         'prenom': contact.prenom,
-    #         'email': contact.email,
-    #         'telephone': contact.telephone,
-    #     })
+def profil(request):
+    user = request.user
+    form = CompteUserForm(instance=user)
+    if request.method=='POST':
+        form = CompteUserForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
     return render(request, "profil.html", locals())
 
 @login_required

@@ -6,9 +6,9 @@ from . import models
 
 class CompteUserForm(ModelForm):
     class Meta:
-        models = models.CompteUser
+        model = models.CompteUser
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user'] 
 
 class CreerUtilisateur(UserCreationForm):
     class Meta:

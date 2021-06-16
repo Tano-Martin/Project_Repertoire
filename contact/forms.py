@@ -8,7 +8,7 @@ class CompteUserForm(forms.ModelForm):
     class Meta:
         model = models.CompteUser
         fields = ['prenom', 'telephone', 'photo']
-
+        
 
 class CreerUtilisateur(UserCreationForm):
     class Meta:

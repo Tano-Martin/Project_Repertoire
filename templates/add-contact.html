@@ -3,13 +3,20 @@
 
 {% block content %}
     <h3 style="text-align: center; padding: 20px;">Ajouter un nouveau contact</h3>
+    <div  style="border: 1px solid #3f3f3f78; height: 120px; width: 120px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
+
+        <img id="output" src="{% static 'images/photo.png' %}" alt="" style="width: 70%; height: 70%;">
+
+    </div>
 
     <form action="#" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="block">
             <div class="inputs" >
                 <label for="photo">Photo</label>
-                <input type="file" name="photo" id="photo" style="font-size: 0.7em; height: 50px;">
+                <div style=" font-size: 0.8em;">
+                    <input type="file" name="photo" onchange="loadFile(event)">
+                </div>
 
                 <label for="nom">Nom</label>
                 <input type="text" name="nom" id="nom">
@@ -30,4 +37,14 @@
         </div>
     </form>
 
+
+    <script>
+      var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+    </script>
 {% endblock content %}

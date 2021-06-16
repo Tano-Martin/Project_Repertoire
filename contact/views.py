@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     if request.method=='POST':
-        username = request.POST.get('telephone')
+        username = request.POST.get('name')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None :

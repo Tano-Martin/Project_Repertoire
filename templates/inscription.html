@@ -2,24 +2,35 @@
 {% load static %}
 
 {% block content %}
-    <form action="#" method="POST">
+    <form action="#" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="block">
             <h1>Inscription</h1>
 
             <div class="inputs">
-                <label for="nom">Nom d'utilisateur</label>
-                {{ form.username }}
+                <label for="photo">Photo</label>
+                {{ form_info.photo }}
+
+                <label for="nom">Nom</label>
+                {{ form_user.username }}
+
+                <label for="prenom">Prénom</label>
+                {{ form_info.prenom }}
 
                 <label for="email">Adresse électronique</label>
-                {{ form.email }} 
-
+                {{ form_user.email }}
+                
+                <label for="telephone">Numéro de téléphone</label>
+                {{ form_info.telephone }}
+           
                 <label for="password1">Mot de passe</label>
-                {{ form.password1 }} 
+                {{ form_user.password1 }}
+
+                <label for="password2">Mot de passe a nouveau</label>
+                {{ form_user.password2 }}
                                
-                <label for="password2">Saisir a nouveau le mot de passe</label>
-                {{ form.password2 }} 
             </div>
+
             <div align="center" style="display: flex;">
                 <a href="{% url 'index' %}">
                     <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
@@ -27,7 +38,8 @@
                 <button type="submit" style="margin: 0 5px;">S'inscrire</button>
             </div>
         </div>
-        <div>{{ form.errors }}</div>
+        <div>{{ form_user.errors }}</div>
+        <div>{{ form_info.errors }}</div>
     </form>
 
 {% endblock content %}

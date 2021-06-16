@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     if request.method=='POST':
-        username = request.POST.get('name')
+        username = request.POST.get('telephone')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None :
@@ -21,16 +21,18 @@ def index(request):
     return render(request, "index.html", locals())
 
 def inscription(request):
-    form = CreerUtilisateur()
+    form_user = CreerUtilisateur()
+    form_info = CompteUserForm()
     if request.method=='POST':
-        form = CreerUtilisateur(request.POST)
-        if form.is_valid():
-            user = form.save()
-            models.CompteUser.objects.create(user=user)
-            
-            # creation de groupe
-            group = Group.objects.get(name='user_group')
-            user.groups.add(group)
+        form_user = CreerUtilisateur(request.POST)
+        form_info = CompteUserForm(request.POST, request.FILES)
+        
+        if form_user.is_valid() and form_info.is_valid() :
+            user = form_user.save()
+            user.save()
+            profil = form_info.save(commit=False)
+            profil.user = user
+            profil.save()
             return redirect('index')
     return render(request, "inscription.html", locals())
 
@@ -92,11 +94,7 @@ def addcontact(request, id_user):
 @login_required
 def profil(request):
     user = request.user
-    form = CompteUserForm(instance=user)
-    if request.method=='POST':
-        form = CompteUserForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
+
     return render(request, "profil.html", locals())
 
 @login_required

@@ -1,21 +1,22 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.forms import ModelForm
+from django import forms
 from . import models
 
 
-class CompteUserForm(ModelForm):
+class CompteUserForm(forms.ModelForm):
     class Meta:
         model = models.CompteUser
-        fields = '__all__'
-        exclude = ['user'] 
+        fields = ['prenom', 'telephone', 'photo']
+
 
 class CreerUtilisateur(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-class ContactForm(ModelForm):
+
+class ContactForm(forms.ModelForm):
     class Meta:
         model = models.Contact
         fields = '__all__'

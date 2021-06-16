@@ -92,12 +92,6 @@ def addcontact(request, id_user):
     return render(request, "add-contact.html", locals())
 
 @login_required
-def profil(request):
-    user = request.user
-
-    return render(request, "profil.html", locals())
-
-@login_required
 def delete(request, id_contact):
     contact = models.Contact.objects.filter(id=id_contact)
     if contact :
@@ -108,4 +102,12 @@ def delete(request, id_contact):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+@login_required
+def profil(request):
+    user = request.user
+    profil = models.CompteUser.objects.filter(user=user)
+
+
+    return render(request, "profil.html", locals())
 

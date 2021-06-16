@@ -21,3 +21,4 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = '__all__'
         exclude = ['compteUser'] 
+

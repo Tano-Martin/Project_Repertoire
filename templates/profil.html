@@ -4,9 +4,7 @@
 {% block content %}
     <h3 style="text-align: center; padding: 10px;">Profil utilisateur</h3>
     <div  style="border: 1px solid #3f3f3f78; height: 120px; width: 120px; border-radius:100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin:auto;">
-
-            <img src="{{ user.compte.photo.url }}" alt="" style="width: 70%; height: 70%;">
-
+        <img id="output" src="{{ user.compte.photo.url }}" alt="" style="width: 100%; height: 100%; border-radius: 100%;">
     </div>
     <form action="#" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -14,7 +12,7 @@
             <div class="inputs" >
                 <label for="photo">Photo</label>
                 <div style=" font-size: 0.8em;">
-                    <input type="file" name="photo" id="photo" >
+                    <input type="file" name="photo" id="photo" onchange="loadFile(event)">
                 </div>
 
                 <label for="nom">Nom</label>
@@ -44,4 +42,13 @@
         </a>
     </div>
     
+    <script>
+        var loadFile = function(event) {
+          var output = document.getElementById('output');
+          output.src = URL.createObjectURL(event.target.files[0]);
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+          }
+        };
+    </script>
 {% endblock content %}

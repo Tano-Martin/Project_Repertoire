@@ -16,16 +16,16 @@
                 </div>
 
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" value="{{ user.username }}">
+                <input type="text" name="nom" id="nom" value="{{ user.username }}" disabled>
 
                 <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom" value="{{ user.compte.prenom }}">
+                <input type="text" name="prenom" id="prenom" {% if not user.compte.prenom is None %} value="{{ user.compte.prenom }}" {% endif %}>
 
                 <label for="email">Adresse électronique</label>
                 <input type="email" name="email" value="{{ user.email }}">
                 
                 <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" name="telephone" value="{{ user.compte.telephone }}">
+                <input type="tel" name="telephone" {% if not user.compte.telephone is None %} value="{{ user.compte.telephone }}" {% endif %} >
             </div>
             
            

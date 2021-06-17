@@ -109,20 +109,22 @@ def profil(request, id_user):
     profil = models.CompteUser.objects.get(user=user)
     
     if request.method == 'POST' :
-        nom = request.POST.get('nom')
         prenom = request.POST.get('prenom')
         email = request.POST.get('email')
         telephone = request.POST.get('telephone')
         photo = request.FILES.get('photo')
 
         user.email = email
-        user.username = nom
         user.save()
 
         profil.user = user
         profil.prenom = prenom
         profil.telephone = telephone
-        profil.photo = photo
+
+        if not photo :
+            profil.photo = profil.photo
+        else :
+            profil.photo = photo
         profil.save()
         return redirect('profil', id_user)
     return render(request, "profil.html", locals())

@@ -8,7 +8,7 @@
             <h1>Inscription</h1>
 
             <div class="inputs">
-                <div style=" font-size: 0.8em; height: 80px; ">
+                <div class="champs-photo">
                     <label style=" font-size: 1rem;" for="photo">Photo</label><br>
                     {{ form_info.photo }}
                 </div>
@@ -33,11 +33,11 @@
                                
             </div>
 
-            <div align="center" style="display: flex;">
+            <div align="center" class="bouton">
                 <a href="{% url 'index' %}">
-                    <button type="button" style="margin: 0 5px; background-color: #c0bcbc;">Annuler</button>
+                    <button type="button" class="btn-nul">Annuler</button>
                 </a>
-                <button type="submit" style="margin: 0 5px;">S'inscrire</button>
+                <button type="submit" class="btn-ins">S'inscrire</button>
             </div>
         </div>
         <div>{{ form_user.errors }}</div>

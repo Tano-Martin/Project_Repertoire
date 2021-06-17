@@ -104,10 +104,26 @@ def logout_view(request):
     return redirect('index')
 
 @login_required
-def profil(request):
-    user = request.user
-    profil = models.CompteUser.objects.filter(user=user)
+def profil(request, id_user):
+    user = get_object_or_404(User, username=id_user)
+    profil = models.CompteUser.objects.get(user=user)
+    
+    if request.method == 'POST' :
+        nom = request.POST.get('nom')
+        prenom = request.POST.get('prenom')
+        email = request.POST.get('email')
+        telephone = request.POST.get('telephone')
+        photo = request.FILES.get('photo')
 
+        user.email = email
+        user.username = nom
+        user.save()
 
+        profil.user = user
+        profil.prenom = prenom
+        profil.telephone = telephone
+        profil.photo = photo
+        profil.save()
+        return redirect('profil', id_user)
     return render(request, "profil.html", locals())
 

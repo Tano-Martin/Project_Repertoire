@@ -52,11 +52,13 @@ def contactdetail(request, id_contact):
 @login_required
 def updatecontact(request, id_contact):
     contact = get_object_or_404(models.Contact, id=id_contact)
-    
+    photo_actuelle = contact.photo
     if request.method=='POST':
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             contact.photo = form.cleaned_data["photo"]
+            if contact.photo == "photo.png" :
+                contact.photo = photo_actuelle
             contact.nom = form.cleaned_data["nom"]
             contact.prenom = form.cleaned_data["prenom"]
             contact.email = form.cleaned_data["email"]

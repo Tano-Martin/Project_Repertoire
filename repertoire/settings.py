@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-elpvt3b1bi-e=lrdc=^n50-5t4t)=!)qp#^ep^j-vxgf8as6+l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['repertoires.herokuapp.com', '*']
 #repertoires.herokuapp.com
 
 
@@ -80,24 +80,24 @@ WSGI_APPLICATION = 'repertoire.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # configuration database postgresql
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'dcoqotogst6391',
-		'USER': 'biohyctbrzpfzu',
-		'PASSWORD': '42f97d6c20fdcb241e37c8958a8b4cd88ae24b3a735b66245432120d666fab82',
-		'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
-		'PORT': 5432,
-	}
-}
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.postgresql',
+# 		'NAME': 'dcoqotogst6391',
+# 		'USER': 'biohyctbrzpfzu',
+# 		'PASSWORD': '42f97d6c20fdcb241e37c8958a8b4cd88ae24b3a735b66245432120d666fab82',
+# 		'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
+# 		'PORT': 5432,
+# 	}
+# }
 
 # configuration database sqlite3
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation

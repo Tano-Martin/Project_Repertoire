@@ -4,6 +4,6 @@ django-tinymce==3.3.0
 djangorestframework==3.12.4
 drf-yasg2==1.19.4
 gunicorn==20.1.0
-pillow==8.2.0
+pillow==9.0.0
 whitenoise==5.2.0
 
